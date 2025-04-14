@@ -37,6 +37,9 @@ function App() {
       .then(response => {
         console.log("Risposta dall'API", response.data);
 
+        //aggiungo un alert con un messaggio per l'utente per il successo dell'azione
+        alert('Complimenti, hai inviato i dati correttamente!');
+
         //dopo aver mandato i dati, vado a svuotare i campi
         setFormPost({
           author: '',
@@ -44,6 +47,13 @@ function App() {
           body: '',
           public: false
         })
+      })
+      .catch(error => {
+        //se invece qualcosa va storto, entreremo nel catch dove verrà visualizzato l'errore in console
+        console.error(error);
+
+        //inserisco un alert che in questo caso mostrerà un messaggio all'utente per informarlo del mancato successo dell'azione
+        alert('Mi dispiace, qualcosa è andato storto...')
       })
 
   }
